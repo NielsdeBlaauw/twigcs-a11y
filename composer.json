@@ -1,0 +1,24 @@
+{
+    "name": "nielsdeblaauw/twigcs-a11y",
+    "description": "Accessibility rules for TwigCS",
+    "type": "library",
+    "require": {
+        "friendsoftwig/twigcs": "^3.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Niels de Blaauw",
+            "email": "niels.de.blaauw@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "NdB\\TwigCSA11Y\\": "src/"
+        }
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3.16",
+        "squizlabs/php_codesniffer": "^3.5"
+    }
+}
