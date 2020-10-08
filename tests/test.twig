@@ -1,0 +1,18 @@
+{# TabIndex #}
+<div tabindex=1></div>
+<div tabindex="1"></div>
+<div tabindex='1'></div>
+<div tabindex="0"></div>
+<div tabindex='0'></div>
+<div tabindex='-1'></div>
+<div tabindex=-1></div>
+{{test}}
+<div tabindex='-1'></div>
+{{test}}
+<div class="{{test}}" tabindex={{test}} id="{{blala}}"></div>
+<div tabindex='{{test}}'></div>
+
+{# BannedHTMLTags #}
+<marquee>This is a marquee</marquee>
+{# - #}
+<p><blink>This blinks</blink></p>

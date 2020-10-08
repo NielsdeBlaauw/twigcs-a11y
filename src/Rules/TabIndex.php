@@ -4,7 +4,6 @@ namespace NdB\TwigCSA11Y\Rules;
 
 use Allocine\Twigcs\Rule\AbstractRule;
 use Allocine\Twigcs\Rule\RuleInterface;
-use Allocine\Twigcs\Lexer;
 use Twig\Token as TwigToken;
 use Twig\TokenStream;
 
@@ -31,12 +30,12 @@ class TabIndex extends AbstractRule implements RuleInterface
 
             if ($token->getType() === TwigToken::TEXT_TYPE) {
                 $matches = [];
-                $textToAnalyse = $token->getValue();
+                $textToAnalyse = (string) $token->getValue();
                 $terminated  = false;
                 $tokenIndex = 1;
                 while (!$terminated) {
                     $nextToken = $tokens->look($tokenIndex);
-                    $textToAnalyse .= $nextToken->getValue();
+                    $textToAnalyse .= (string) $nextToken->getValue();
                     if ($nextToken->getType() === TwigToken::TEXT_TYPE
                         || $nextToken->getType() === TwigToken::EOF_TYPE
                     ) {
@@ -59,7 +58,7 @@ class TabIndex extends AbstractRule implements RuleInterface
                         $token->getLine(),
                         $token->columnno,
                         sprintf(
-                            'Invalid \'tabindex\'. Tabindex must be 0 or -1. Found `%1$s.`',
+                            '[A11Y.TabIndex] Invalid \'tabindex\'. Tabindex must be 0 or -1. Found `%1$s.`',
                             trim($matches[0])
                         )
                     );

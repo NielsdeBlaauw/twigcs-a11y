@@ -36,7 +36,7 @@ class BannedHTMLTags extends AbstractRule implements RuleInterface
             if ($token->getType() === TwigToken::TEXT_TYPE) {
                 foreach (self::BANNED_TAGS as $tag => $test) {
                     $matches = [];
-                    if (preg_match($test, $token->getValue(), $matches)) {
+                    if (preg_match($test, (string) $token->getValue(), $matches)) {
                         /**
                          * @psalm-suppress InternalMethod
                          * @psalm-suppress UndefinedPropertyFetch
@@ -45,7 +45,7 @@ class BannedHTMLTags extends AbstractRule implements RuleInterface
                             (string) $tokens->getSourceContext()->getPath(),
                             $token->getLine(),
                             $token->columnno,
-                            sprintf('Tag \'%1$s\' is dissallowed. Found `%2$s`.', $tag, $matches[0])
+                            sprintf('[A11Y.BannedHTMLTags] Tag \'%1$s\' is dissallowed. Found `%2$s`.', $tag, $matches[0])
                         );
                     }
                 }

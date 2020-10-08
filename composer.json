@@ -17,6 +17,20 @@
             "NdB\\TwigCSA11Y\\": "src/"
         }
     },
+    "scripts":{
+        "test": [
+            "composer validate --strict",
+            "twigcs tests/test.twig --ruleset \\\\NdB\\\\TwigCSA11Y\\\\Ruleset --reporter checkstyle > tests/snapshot.compare.xml || true",
+            "diff tests/snapshot.xml tests/snapshot.compare.xml",
+            "psalm"
+        ],
+        "test:update-snapshot": [
+            "twigcs tests/test.twig --ruleset \\\\NdB\\\\TwigCSA11Y\\\\Ruleset --reporter checkstyle > tests/snapshot.xml || true"
+        ],
+        "test:ruleset": [
+            "twigcs tests/test.twig --ruleset \\\\NdB\\\\TwigCSA11Y\\\\Ruleset"
+        ]
+    },
     "require-dev": {
         "vimeo/psalm": "^3.16",
         "squizlabs/php_codesniffer": "^3.5"
