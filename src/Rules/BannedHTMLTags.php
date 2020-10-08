@@ -10,8 +10,8 @@ use Twig\TokenStream;
 class BannedHTMLTags extends AbstractRule implements RuleInterface
 {
     private const BANNED_TAGS = [
-        'blink' => '<\/*blink>',
-        'marquee' => '<\/*marquee(.)*>'
+        'blink' => '/<\/?blink>/U',
+        'marquee' => '/<\/?marquee(.)*>/U'
     ];
 
     /**
@@ -45,7 +45,7 @@ class BannedHTMLTags extends AbstractRule implements RuleInterface
                             (string) $tokens->getSourceContext()->getPath(),
                             $token->getLine(),
                             $token->columnno,
-                            sprintf('Tag \'%1$s\' is dissallowed in %2$s.', $tag, $token->getValue())
+                            sprintf('Tag \'%1$s\' is dissallowed. Found `%2$s`.', $tag, $matches[0])
                         );
                     }
                 }
