@@ -1,2 +1,39 @@
 # twigcs-a11y
-TwigCS accessibility ruleset
+This is a [TwigCS](https://github.com/friendsoftwig/twigcs) accessibility ruleset. It statically checks twig templates for 
+known accessibility issues. 
+
+The ruleset is inspired by [Deque's Axe Linter](https://axe-linter.deque.com/)
+
+**Note:** *Automated tests do not guarantee your site is accessible. Manual testing is the 
+only way to make sure.*
+
+Want to learn more about creating accessible websites? Check out [The A11Y Collective](https://a11y-collective.com/).
+
+## Installation
+`composer require --dev nielsdeblaauw/twigcs-a11y`
+
+## Use
+`vendor/bin/twigcs --ruleset \\NdB\\TwigCSA11Y\\Ruleset`
+
+For additional options read the [TwigCS documentation](https://github.com/friendsoftwig/twigcs).
+
+## Rules
+The following rules are implemented as part of this ruleset.
+
+### TabIndex
+**[Axe Tabindex rule description.](https://dequeuniversity.com/rules/axe/3.5/tabindex)**
+
+Using a non `0` or `-1` value for tabindex results in unexpected behaviour for keyboard users. Variables in the tabindex property of an element are considered invalid.
+
+
+### BannedHTMLTags
+
+**[Axe Blink rule description.](https://dequeuniversity.com/rules/axe/3.5/blink)**
+
+**[Axe Marquee rule description.](https://dequeuniversity.com/rules/axe/3.5/marquee)**
+
+
+The `blink` and `marquee` tags are disallowed from use. These elements can cause issues for users with cognitive disabilities.
+
+## Roadmap
+The idea is to implement as many rules as possible from the [Axe Linter](https://axe-linter.deque.com/docs/ruleset/) ruleset.
