@@ -15,6 +15,18 @@ Want to learn more about creating accessible websites? Check out [The A11Y Colle
 ## Use
 `vendor/bin/twigcs --ruleset \\NdB\\TwigCSA11Y\\Ruleset`
 
+
+**Example Output**
+```
+./tests/test.twig
+l.2 c.0 : ERROR [A11Y.TabIndex] Invalid 'tabindex'. Tabindex must be 0 or -1. Found `tabindex=1>.`
+l.12 c.20 : ERROR [A11Y.TabIndex] Invalid 'tabindex'. Tabindex must be 0 or -1. Found `tabindex=test.`
+l.12 c.53 : ERROR [A11Y.TabIndex] Invalid 'tabindex'. Tabindex must be 0 or -1. Found `tabindex='test'.`
+l.16 c.0 : ERROR [A11Y.BannedHTMLTags] Tag 'marquee' is dissallowed. Found `<marquee>`.
+l.18 c.0 : ERROR [A11Y.BannedHTMLTags] Tag 'blink' is dissallowed. Found `<blink>`.
+5 violation(s) found
+```
+
 For additional options read the [TwigCS documentation](https://github.com/friendsoftwig/twigcs).
 
 ## Rules
