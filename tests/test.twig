@@ -1,18 +1,24 @@
 {# TabIndex #}
-<div tabindex=1></div>
-<div tabindex="1"></div>
-<div tabindex='1'></div>
-<div tabindex="0"></div>
-<div tabindex='0'></div>
-<div tabindex='-1'></div>
-<div tabindex=-1></div>
-{{test}}
-<div tabindex='-1'></div>
-{{test}}
-<div class="{{test}}" tabindex={{test}} id="{{blala}}"></div>
-<div tabindex='{{test}}'></div>
+<div tabindex=1></div> {# BAD #}
+<div tabindex="1"></div> {# BAD #}
+<div tabindex='1'></div> {# BAD #}
+<div tabindex="0"></div> {# GOOD #}
+<div tabindex='0'></div> {# GOOD #}
+<div tabindex='-1'></div> {# GOOD #}
+<div tabindex=-1></div> {# GOOD #}
+<div tabindex='-1'></div> {# GOOD #}
+<div class="{{test}}" tabindex={{test}} id="{{blala}}"></div> {# BAD #}
+<div tabindex='{{test}}'></div> {# BAD #}
 
 {# BannedHTMLTags #}
-<marquee>This is a marquee</marquee>
-{# - #}
-<p><blink>This blinks</blink></p>
+<marquee>This is a marquee</marquee> {# BAD #}
+<p><blink>This blinks</blink></p> {# BAD #}
+
+{# AriaRoles #}
+<div role="article"></div> {# GOOD #}
+<div role="invalid_role"></div> {# BAD #}
+<div role='invalid_role'></div> {# BAD #}
+<div role=invalid></div> {# BAD #}
+<div role=command></div> {# BAD - abstract role #}
+<div class='{{ variable }}' role=invalid></div> {# BAD #}
+<div role='{{ variable }}' /> {# BAD #}
