@@ -37,15 +37,21 @@ The following rules are implemented as part of this ruleset.
 
 Using a non `0` or `-1` value for tabindex results in unexpected behaviour for keyboard users. Variables in the tabindex property of an element are considered invalid.
 
-
 ### BannedHTMLTags
 
 **[Axe Blink rule description.](https://dequeuniversity.com/rules/axe/3.5/blink)**
 
 **[Axe Marquee rule description.](https://dequeuniversity.com/rules/axe/3.5/marquee)**
 
-
 The `blink` and `marquee` tags are disallowed from use. These elements can cause issues for users with cognitive disabilities.
+
+### AriaRoles
+
+**[Axe aria-roles rule description.](https://dequeuniversity.com/rules/axe/3.5/aria-roles)**
+
+Catches invalid Aria role values. Typo's, non-standard and dynamic roles are not allowed.
+
+Invalid roles can not be correctly interpreted by assistive technology.
 
 ## Roadmap
 The idea is to implement as many rules as possible from the [Axe Linter](https://axe-linter.deque.com/docs/ruleset/) ruleset.

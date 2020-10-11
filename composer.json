@@ -22,7 +22,8 @@
             "composer validate --strict",
             "twigcs tests/test.twig --ruleset \\\\NdB\\\\TwigCSA11Y\\\\Ruleset --reporter checkstyle > tests/snapshot.compare.xml || true",
             "diff tests/snapshot.xml tests/snapshot.compare.xml",
-            "psalm"
+            "psalm",
+            "phpcs"
         ],
         "test:update-snapshot": [
             "twigcs tests/test.twig --ruleset \\\\NdB\\\\TwigCSA11Y\\\\Ruleset --reporter checkstyle > tests/snapshot.xml || true"

@@ -45,7 +45,7 @@ class BannedHTMLTags extends AbstractRule implements RuleInterface
                             (string) $tokens->getSourceContext()->getPath(),
                             $token->getLine(),
                             $token->columnno,
-                            sprintf('[A11Y.BannedHTMLTags] Tag \'%1$s\' is dissallowed. Found `%2$s`.', $tag, $matches[0])
+                            sprintf('[A11Y.BannedHTMLTags] Invalid tag \'%1$s\'. Found `%2$s`.', $tag, $matches[0])
                         );
                     }
                 }
