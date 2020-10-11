@@ -7,7 +7,8 @@
 <div tabindex='-1'></div> {# GOOD #}
 <div tabindex=-1></div> {# GOOD #}
 <div tabindex='-1'></div> {# GOOD #}
-<div class="{{test}}" tabindex={{test}} id="{{blala}}"></div> {# BAD #}
+<div class="{{ test }}" tabindex={{ test }} id="{{ blala }}"></div> {# BAD #}
+<div tabindex='{{ test }}'></div> {# BAD #}
 <div tabindex='{{test}}'></div> {# BAD #}
 
 {# BannedHTMLTags #}

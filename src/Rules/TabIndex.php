@@ -35,7 +35,9 @@ class TabIndex extends AbstractRule implements RuleInterface
                 $tokenIndex = 1;
                 while (!$terminated) {
                     $nextToken = $tokens->look($tokenIndex);
-                    $textToAnalyse .= (string) $nextToken->getValue();
+                    if ($nextToken->getType() !== TwigToken::ARROW_TYPE) {
+                        $textToAnalyse .= (string) $nextToken->getValue();
+                    }
                     if ($nextToken->getType() === TwigToken::TEXT_TYPE
                         || $nextToken->getType() === TwigToken::EOF_TYPE
                     ) {
@@ -58,7 +60,7 @@ class TabIndex extends AbstractRule implements RuleInterface
                         $token->getLine(),
                         $token->columnno,
                         sprintf(
-                            '[A11Y.TabIndex] Invalid \'tabindex\'. Tabindex must be 0 or -1. Found `%1$s.`',
+                            '[A11Y.TabIndex] Invalid \'tabindex\'. Tabindex must be 0 or -1. Found `%1$s`.',
                             trim($matches[0])
                         )
                     );
