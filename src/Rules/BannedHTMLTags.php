@@ -2,10 +2,10 @@
 
 namespace NdB\TwigCSA11Y\Rules;
 
-use Allocine\Twigcs\Rule\AbstractRule;
-use Allocine\Twigcs\Rule\RuleInterface;
+use FriendsOfTwig\Twigcs\Rule\AbstractRule;
+use FriendsOfTwig\Twigcs\Rule\RuleInterface;
+use FriendsOfTwig\Twigcs\TwigPort\TokenStream;
 use Twig\Token as TwigToken;
-use Twig\TokenStream;
 
 class BannedHTMLTags extends AbstractRule implements RuleInterface
 {
@@ -15,7 +15,7 @@ class BannedHTMLTags extends AbstractRule implements RuleInterface
     ];
 
     /**
-     * @var \Allocine\Twigcs\Validator\Violation[]
+     * @var \FriendsOfTwig\Twigcs\Validator\Violation[]
      */
     protected $violations = [];
 
