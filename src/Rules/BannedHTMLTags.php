@@ -41,10 +41,10 @@ class BannedHTMLTags extends AbstractRule implements RuleInterface
                          * @psalm-suppress InternalMethod
                          * @psalm-suppress UndefinedPropertyFetch
                          */
-                        $this->addViolation(
+                        $this->createViolation(
                             (string) $tokens->getSourceContext()->getPath(),
                             $token->getLine(),
-                            $token->columnno,
+                            $token->getColumn(),
                             sprintf('[A11Y.BannedHTMLTags] Invalid tag \'%1$s\'. Found `%2$s`.', $tag, $matches[0])
                         );
                     }

@@ -55,10 +55,10 @@ class TabIndex extends AbstractRule implements RuleInterface
                      * @psalm-suppress InternalMethod
                      * @psalm-suppress UndefinedPropertyFetch
                      */
-                    $this->addViolation(
+                    $this->createViolation(
                         (string) $tokens->getSourceContext()->getPath(),
                         $token->getLine(),
-                        $token->columnno,
+                        $token->getColumn(),
                         sprintf(
                             '[A11Y.TabIndex] Invalid \'tabindex\'. Tabindex must be 0 or -1. Found `%1$s`.',
                             trim($matches[0])
