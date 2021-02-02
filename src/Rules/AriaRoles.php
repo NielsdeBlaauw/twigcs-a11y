@@ -77,10 +77,10 @@ class AriaRoles extends AbstractRule implements RuleInterface
                              * @psalm-suppress InternalMethod
                              * @psalm-suppress UndefinedPropertyFetch
                              */
-                            $this->addViolation(
+                            $this->createViolation(
                                 (string) $tokens->getSourceContext()->getPath(),
                                 $token->getLine(),
-                                $token->columnno,
+                                $token->getColumn(),
                                 sprintf(
                                     '[A11Y.AriaRoles] Invalid abstract \'role\' value. Found `%1$s`.',
                                     trim($matches[0])
@@ -91,10 +91,10 @@ class AriaRoles extends AbstractRule implements RuleInterface
                              * @psalm-suppress InternalMethod
                              * @psalm-suppress UndefinedPropertyFetch
                              */
-                            $this->addViolation(
+                            $this->createViolation(
                                 (string) $tokens->getSourceContext()->getPath(),
                                 $token->getLine(),
-                                $token->columnno,
+                                $token->getColumn(),
                                 sprintf(
                                     '[A11Y.AriaRoles] Invalid \'role\'. Role must have a valid value. Found `%1$s`.',
                                     trim($matches[0])

@@ -10,9 +10,11 @@ use NdB\TwigCSA11Y\Rules\TabIndex;
 
 class Ruleset implements RulesetInterface
 {
+    private $twigMajorVersion;
+
     public function __construct(int $twigMajorVersion)
     {
-
+        $this->twigMajorVersion = $twigMajorVersion;
     }
 
     public function getRules()
