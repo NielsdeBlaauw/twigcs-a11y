@@ -4,8 +4,8 @@ namespace NdB\TwigCSA11Y\Rules;
 
 use FriendsOfTwig\Twigcs\Rule\AbstractRule;
 use FriendsOfTwig\Twigcs\Rule\RuleInterface;
+use FriendsOfTwig\Twigcs\TwigPort\Token as TwigToken;
 use FriendsOfTwig\Twigcs\TwigPort\TokenStream;
-use Twig\Token as TwigToken;
 
 class TabIndex extends AbstractRule implements RuleInterface
 {
@@ -25,6 +25,8 @@ class TabIndex extends AbstractRule implements RuleInterface
 
     public function check(TokenStream $tokens)
     {
+        $violations = [];
+
         while (!$tokens->isEOF()) {
             $token = $tokens->getCurrent();
 
@@ -55,7 +57,7 @@ class TabIndex extends AbstractRule implements RuleInterface
                      * @psalm-suppress InternalMethod
                      * @psalm-suppress UndefinedPropertyFetch
                      */
-                    $this->createViolation(
+                    $violations[] = $this->createViolation(
                         (string) $tokens->getSourceContext()->getPath(),
                         $token->getLine(),
                         $token->getColumn(),
@@ -69,6 +71,6 @@ class TabIndex extends AbstractRule implements RuleInterface
 
             $tokens->next();
         }
-        return $this->violations;
+        return $violations;
     }
 }
