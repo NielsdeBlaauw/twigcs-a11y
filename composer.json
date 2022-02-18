@@ -3,7 +3,7 @@
     "description": "Accessibility rules for TwigCS",
     "type": "library",
     "require": {
-        "friendsoftwig/twigcs": "^4.0"
+        "friendsoftwig/twigcs": "^5.1"
     },
     "license": "MIT",
     "authors": [
